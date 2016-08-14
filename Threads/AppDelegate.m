@@ -68,7 +68,8 @@ static int firstNameCount = 21;
         Student *currentStudent = [[Student alloc]initWithFirstName:firstName
                                                        randomNumber:currentNumber
                                                          rangeStart:rangeStart
-                                                        rangeFinish:rangeFinish ];
+                                                        rangeFinish:rangeFinish totalBlock:^{
+                                                        }];
         [self.mArrayAllStudents addObject:currentStudent];
     }
     // Override point for customization after application launch.

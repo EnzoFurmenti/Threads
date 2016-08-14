@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Student;
+typedef void(^TotalBlock)(void);
 
 @interface Student : NSObject
 @property (nonatomic,strong) NSString *firstName;
@@ -18,6 +20,6 @@
 - (id)initWithFirstName:(NSString*)firstName
            randomNumber:(NSInteger) randomNumber
              rangeStart:(NSInteger)rangeStart
-            rangeFinish:(NSInteger)rangeFinish;
+            rangeFinish:(NSInteger)rangeFinish totalBlock:(TotalBlock)totalBlock;
 
 @end
