@@ -16,33 +16,32 @@ typedef void(^TotalBlock)(void);
 @implementation Student
 
 - (id)initWithFirstName:(NSString*)firstName
-           randomNumber:(NSInteger) randomNumber
+           randomNumber:(NSInteger)randomNumber
              rangeStart:(NSInteger)rangeStart
-            rangeFinish:(NSInteger)rangeFinish totalBlock:(TotalBlock)totalBlock{
+            rangeFinish:(NSInteger)rangeFinish
+             totalBlock:(TotalBlock)totalBlock{
     self = [super init];
     if(self)
     {
         self.firstName = firstName;
-
-        dispatch_queue_t queue = dispatch_queue_create("com.EFCompany.LessonThreads", DISPATCH_QUEUE_SERIAL);
+        dispatch_queue_t queue = [Student getQueue];
         dispatch_async(queue, ^{
-            [self isRightResponse:randomNumber rangeStart:rangeStart rangeFinish:rangeFinish];
+            [self isRightResponse:randomNumber rangeStart:rangeStart rangeFinish:rangeFinish totalBlock:totalBlock];
         });
-
-        dispatch_async(dispatch_get_main_queue(),totalBlock);
     }
     return self;
 }
 
-
-- (void)isRightResponse:(NSInteger) randomNumber
-                  rangeStart:(NSInteger)rangeStart
-                 rangeFinish:(NSInteger)rangeFinish{
+#pragma mark - Metods-
+- (void)isRightResponse:(NSInteger)randomNumber
+             rangeStart:(NSInteger)rangeStart
+            rangeFinish:(NSInteger)rangeFinish
+             totalBlock:(TotalBlock) totalBlock{
     
     @autoreleasepool{
         
         double startTime = CFAbsoluteTimeGetCurrent();
-        TotalBlock totalBlock = ^{
+         totalBlock = ^{
             NSLog(@"%@ - student %@ - thread finished %f",self.firstName,[[NSThread currentThread] name], CFAbsoluteTimeGetCurrent() - startTime);
         };
         
@@ -55,5 +54,15 @@ typedef void(^TotalBlock)(void);
         dispatch_async(dispatch_get_main_queue(),totalBlock);
     }
 }
+
++ (dispatch_queue_t)getQueue{
+    static dispatch_queue_t queueStatic = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        queueStatic = dispatch_queue_create("com.EFCompany.LessonThreadsStat", DISPATCH_QUEUE_CONCURRENT);
+    });
+    return queueStatic;
+}
+
 
 @end
