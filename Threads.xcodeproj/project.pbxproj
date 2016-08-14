@@ -13,6 +13,7 @@
 		96B920971D6017ED006BFD50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B920951D6017ED006BFD50 /* Main.storyboard */; };
 		96B920991D6017ED006BFD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B920981D6017ED006BFD50 /* Assets.xcassets */; };
 		96B9209C1D6017ED006BFD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B9209A1D6017ED006BFD50 /* LaunchScreen.storyboard */; };
+		96B920A51D601EBC006BFD50 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B920A41D601EBC006BFD50 /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		96B920981D6017ED006BFD50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96B9209B1D6017ED006BFD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96B9209D1D6017ED006BFD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96B920A31D601EBC006BFD50 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		96B920A41D601EBC006BFD50 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,8 @@
 		96B920801D6017ED006BFD50 = {
 			isa = PBXGroup;
 			children = (
+				96B920A31D601EBC006BFD50 /* Student.h */,
+				96B920A41D601EBC006BFD50 /* Student.m */,
 				96B9208B1D6017ED006BFD50 /* Threads */,
 				96B9208A1D6017ED006BFD50 /* Products */,
 			);
@@ -153,6 +158,7 @@
 				96B920941D6017ED006BFD50 /* ViewController.m in Sources */,
 				96B920911D6017ED006BFD50 /* AppDelegate.m in Sources */,
 				96B9208E1D6017ED006BFD50 /* main.m in Sources */,
+				96B920A51D601EBC006BFD50 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +309,7 @@
 				96B920A21D6017ED006BFD50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
