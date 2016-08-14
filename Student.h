@@ -18,6 +18,6 @@
 - (id)initWithFirstName:(NSString*)firstName
            randomNumber:(NSInteger) randomNumber
              rangeStart:(NSInteger)rangeStart
-            rangeFinish:(NSInteger)rangeFinish totalBlock:(void(^)()) totalBlock;
+            rangeFinish:(NSInteger)rangeFinish;
 
 @end

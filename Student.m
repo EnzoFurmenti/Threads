@@ -16,7 +16,7 @@
 - (id)initWithFirstName:(NSString*)firstName
            randomNumber:(NSInteger) randomNumber
              rangeStart:(NSInteger)rangeStart
-            rangeFinish:(NSInteger)rangeFinish totalBlock:(void (^)())totalBlock{
+            rangeFinish:(NSInteger)rangeFinish{
     self = [super init];
     if(self)
     {
@@ -27,7 +27,6 @@
             [self isRightResponse:randomNumber rangeStart:rangeStart rangeFinish:rangeFinish];
         });
         
-        totalBlock();
     }
     return self;
 }
