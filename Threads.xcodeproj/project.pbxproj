@@ -14,6 +14,8 @@
 		96B920991D6017ED006BFD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B920981D6017ED006BFD50 /* Assets.xcassets */; };
 		96B9209C1D6017ED006BFD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B9209A1D6017ED006BFD50 /* LaunchScreen.storyboard */; };
 		96B920A51D601EBC006BFD50 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B920A41D601EBC006BFD50 /* Student.m */; };
+		96B920A81D6089DE006BFD50 /* StudentOtherApproach.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B920A71D6089DE006BFD50 /* StudentOtherApproach.m */; };
+		96B920AE1D63012D006BFD50 /* StudentOAOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B920AD1D63012D006BFD50 /* StudentOAOp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,12 @@
 		96B920981D6017ED006BFD50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96B9209B1D6017ED006BFD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96B9209D1D6017ED006BFD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96B920A31D601EBC006BFD50 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
-		96B920A41D601EBC006BFD50 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		96B920A31D601EBC006BFD50 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Student.h; path = ../Student.h; sourceTree = "<group>"; };
+		96B920A41D601EBC006BFD50 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Student.m; path = ../Student.m; sourceTree = "<group>"; };
+		96B920A61D6089DE006BFD50 /* StudentOtherApproach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentOtherApproach.h; path = ../StudentOtherApproach.h; sourceTree = "<group>"; };
+		96B920A71D6089DE006BFD50 /* StudentOtherApproach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentOtherApproach.m; path = ../StudentOtherApproach.m; sourceTree = "<group>"; };
+		96B920AC1D63012D006BFD50 /* StudentOAOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentOAOp.h; path = ../StudentOAOp.h; sourceTree = "<group>"; };
+		96B920AD1D63012D006BFD50 /* StudentOAOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentOAOp.m; path = ../StudentOAOp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +51,6 @@
 		96B920801D6017ED006BFD50 = {
 			isa = PBXGroup;
 			children = (
-				96B920A31D601EBC006BFD50 /* Student.h */,
-				96B920A41D601EBC006BFD50 /* Student.m */,
 				96B9208B1D6017ED006BFD50 /* Threads */,
 				96B9208A1D6017ED006BFD50 /* Products */,
 			);
@@ -65,12 +69,12 @@
 			children = (
 				96B9208F1D6017ED006BFD50 /* AppDelegate.h */,
 				96B920901D6017ED006BFD50 /* AppDelegate.m */,
-				96B920921D6017ED006BFD50 /* ViewController.h */,
-				96B920931D6017ED006BFD50 /* ViewController.m */,
-				96B920951D6017ED006BFD50 /* Main.storyboard */,
-				96B920981D6017ED006BFD50 /* Assets.xcassets */,
-				96B9209A1D6017ED006BFD50 /* LaunchScreen.storyboard */,
-				96B9209D1D6017ED006BFD50 /* Info.plist */,
+				96B920A61D6089DE006BFD50 /* StudentOtherApproach.h */,
+				96B920A71D6089DE006BFD50 /* StudentOtherApproach.m */,
+				96B920A31D601EBC006BFD50 /* Student.h */,
+				96B920A41D601EBC006BFD50 /* Student.m */,
+				96B920AC1D63012D006BFD50 /* StudentOAOp.h */,
+				96B920AD1D63012D006BFD50 /* StudentOAOp.m */,
 				96B9208C1D6017ED006BFD50 /* Supporting Files */,
 			);
 			path = Threads;
@@ -79,6 +83,12 @@
 		96B9208C1D6017ED006BFD50 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				96B920921D6017ED006BFD50 /* ViewController.h */,
+				96B920931D6017ED006BFD50 /* ViewController.m */,
+				96B920951D6017ED006BFD50 /* Main.storyboard */,
+				96B920981D6017ED006BFD50 /* Assets.xcassets */,
+				96B9209A1D6017ED006BFD50 /* LaunchScreen.storyboard */,
+				96B9209D1D6017ED006BFD50 /* Info.plist */,
 				96B9208D1D6017ED006BFD50 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -157,8 +167,10 @@
 			files = (
 				96B920941D6017ED006BFD50 /* ViewController.m in Sources */,
 				96B920911D6017ED006BFD50 /* AppDelegate.m in Sources */,
+				96B920AE1D63012D006BFD50 /* StudentOAOp.m in Sources */,
 				96B9208E1D6017ED006BFD50 /* main.m in Sources */,
 				96B920A51D601EBC006BFD50 /* Student.m in Sources */,
+				96B920A81D6089DE006BFD50 /* StudentOtherApproach.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

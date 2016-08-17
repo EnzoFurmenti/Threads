@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "Student.h"
+#import "StudentOtherApproach.h"
 
 
 static NSString *firstNames[] = {
@@ -35,9 +36,10 @@ static NSString *firstNames[] = {
     @"Степан"
 };
 static int firstNameCount = 21;
-
 @interface AppDelegate ()
+
 @property (nonatomic,strong) NSMutableArray *mArrayAllStudents;
+@property (nonatomic,strong) NSMutableArray *mArrayAllStudentsOtherAproach;
 
 @end
 
@@ -45,18 +47,19 @@ static int firstNameCount = 21;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen]bounds]];
     self.window.backgroundColor = [UIColor cyanColor];
     [self.window makeKeyAndVisible];
-    
     ViewController *vc = [[ViewController alloc] init];
     UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navC;
     
+    
     const int rangeStart = 0;
     const int rangeFinish = 1200000;
-    const int currentNumber = rangeStart + arc4random() % rangeFinish;
+    const int guessNumber = rangeStart + arc4random() % rangeFinish;
+    
+    
     for (int i = 0; i < 5; i++)
     {
         if(!self.mArrayAllStudents)
@@ -65,14 +68,38 @@ static int firstNameCount = 21;
         }
         NSString *firstName = firstNames[arc4random() % firstNameCount];
         
-        Student *currentStudent = [[Student alloc]initWithFirstName:firstName
-                                                       randomNumber:currentNumber
-                                                         rangeStart:rangeStart
-                                                        rangeFinish:rangeFinish totalBlock:^{
-                                                        }];
+        
+        Student *currentStudent =
+        [[Student alloc]initWithFirstName:firstName
+                              guessNumber:guessNumber
+                               rangeStart:rangeStart
+                              rangeFinish:rangeFinish
+                               totalBlock:^(NSString *firstName,CGFloat timeInterval){
+                                   NSLog(@"%@ - student Threads finished %f",firstName,timeInterval);
+                               }];
+        
         [self.mArrayAllStudents addObject:currentStudent];
     }
-    // Override point for customization after application launch.
+    
+    for (int i = 0; i < 5; i++)
+    {
+        if(!self.mArrayAllStudentsOtherAproach)
+        {
+            self.mArrayAllStudentsOtherAproach = [[NSMutableArray alloc]init];
+        }
+        NSString *firstName = firstNames[arc4random() % firstNameCount];
+        
+        StudentOtherApproach *currentStudentOtherApproach =
+        [[StudentOtherApproach alloc] initWithFirstName:firstName
+                                            guessNumber:guessNumber
+                                             rangeStart:rangeStart
+                                            rangeFinish:rangeFinish
+                                             totalBlock:^(NSString *firstName,CGFloat timeInterval){
+                                                NSLog(@"%@ - student NSOperation finished %f",firstName,timeInterval);
+                                             }];
+        
+        [self.mArrayAllStudentsOtherAproach addObject:currentStudentOtherApproach];
+    }
     return YES;
 }
 

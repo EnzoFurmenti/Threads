@@ -7,52 +7,49 @@
 //
 
 #import "Student.h"
-#import <CoreGraphics/CGBase.h>
 
+@interface Student ()
 
-typedef void(^TotalBlock)(void);
+@property (nonatomic, copy) TotalBlock totalBlock;
 
+@end
 
 @implementation Student
 
 - (id)initWithFirstName:(NSString*)firstName
-           randomNumber:(NSInteger)randomNumber
+           guessNumber:(NSInteger)guessNumber
              rangeStart:(NSInteger)rangeStart
             rangeFinish:(NSInteger)rangeFinish
-             totalBlock:(TotalBlock)totalBlock{
+            totalBlock:(TotalBlock)totalBlock{
     self = [super init];
     if(self)
     {
         self.firstName = firstName;
         dispatch_queue_t queue = [Student getQueue];
         dispatch_async(queue, ^{
-            [self isRightResponse:randomNumber rangeStart:rangeStart rangeFinish:rangeFinish totalBlock:totalBlock];
+            [self rightNumber:guessNumber rangeStart:rangeStart rangeFinish:rangeFinish totalBlock:totalBlock];
         });
     }
     return self;
 }
 
-#pragma mark - Metods-
-- (void)isRightResponse:(NSInteger)randomNumber
+#pragma mark - Metods -
+- (void)rightNumber:(NSInteger)guessNumber
              rangeStart:(NSInteger)rangeStart
             rangeFinish:(NSInteger)rangeFinish
              totalBlock:(TotalBlock) totalBlock{
     
-    @autoreleasepool{
-        
         double startTime = CFAbsoluteTimeGetCurrent();
-         totalBlock = ^{
-            NSLog(@"%@ - student %@ - thread finished %f",self.firstName,[[NSThread currentThread] name], CFAbsoluteTimeGetCurrent() - startTime);
-        };
-        
         NSLog(@"%@ - student %@ - thread started",self.firstName,[[NSThread currentThread] name]);
         NSInteger currentNumberByStudent = 0;
-        while (randomNumber != currentNumberByStudent)
+        while (guessNumber != currentNumberByStudent)
         {
            currentNumberByStudent = rangeStart + arc4random() % rangeFinish;
         }
-        dispatch_async(dispatch_get_main_queue(),totalBlock);
-    }
+        self.totalBlock = totalBlock;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.totalBlock(self.firstName, CFAbsoluteTimeGetCurrent() - startTime);
+        });
 }
 
 + (dispatch_queue_t)getQueue{

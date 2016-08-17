@@ -1,5 +1,5 @@
 //
-//  Student.h
+//  StudentOtherApproach.h
 //  Threads
 //
 //  Created by EnzoF on 14.08.16.
@@ -9,23 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGBase.h>
 
-@class Student;
+@class StudentOtherApproach;
 typedef void(^TotalBlock)(NSString*name,CGFloat timeInterval);
 
-@interface Student : NSObject
-@property (nonatomic,strong) NSString *firstName;
+@interface StudentOtherApproach : NSObject
 
-- (void)rightNumber:(NSInteger)guessNumber
-         rangeStart:(NSInteger)rangeStart
-        rangeFinish:(NSInteger)rangeFinish
-         totalBlock:(TotalBlock) totalBlock;
+@property (nonatomic,strong) NSString *firstName;
+@property (nonatomic,assign) NSInteger guessNumber;
+@property (nonatomic,assign) NSInteger rangeStart;
+@property (nonatomic,assign) NSInteger rangeFinish;
 
 - (id)initWithFirstName:(NSString*)firstName
-           guessNumber:(NSInteger)guessNumber
+            guessNumber:(NSInteger)guessNumber
              rangeStart:(NSInteger)rangeStart
             rangeFinish:(NSInteger)rangeFinish
              totalBlock:(TotalBlock)totalBlock;
 
-+ (dispatch_queue_t)getQueue;
++ (NSOperationQueue*)getQueue;
 
 @end
